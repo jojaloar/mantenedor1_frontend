@@ -1,8 +1,8 @@
 # Base React
 
-iniciar App
-npm install
-npm start
+### iniciar App
+- npm install
+- npm start
 
 - **Cero-dependencia**
 - **No** componentes de clase

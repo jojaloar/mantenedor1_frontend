@@ -4,6 +4,7 @@
 - npm install
 - npm start
 
+## Summary
 - **Cero-dependencia**
 - **No** componentes de clase
 - Utiliza `Context` para compartir un **estado global**
@@ -12,9 +13,6 @@
 - Lógica de estado desacoplado (Acciones)
 - Componentes comprobables (Utiliza Jest + Enzyme para pruebas)
 - Ganchos personalizados para **estado persistente**.
-
-## Summary
-
 ### 1. **Context**:
 
 El enfoque principal es desplazar Redux y utilizar **React Contexts** en su lugar. Con la composición de `useState`,` useContext` para crear un estado global. Y lo pasó a un **hook personalizado** llamado `useTodos`. `useTodos` donde `useState` genera un administrador de estado que se pasará a `TodoContext.Provider` para usarlo como estado global.

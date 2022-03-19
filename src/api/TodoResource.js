@@ -1,4 +1,4 @@
-const API_URL = process.env.API_URL || "http://localhost:8080";
+const API_URL = process.env.API_URL || "https://bikeindex.org";
 
 export default {
 
@@ -8,7 +8,7 @@ export default {
         body: JSON.stringify(todo)
     }).then(response => response.json()),
 
-    getAll: () => fetch(`${API_URL}/api/v1/tasks`)
+    getAll: () => fetch(`${API_URL}/api/v3/search`)
         .then(response => response.json()),
 
     post: (todo) => fetch(`${API_URL}/api/v1/tasks`, {

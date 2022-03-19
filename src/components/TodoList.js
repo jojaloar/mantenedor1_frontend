@@ -10,7 +10,6 @@ const TodoList = () => {
   function handleComplete(item) {
     const data = { ...item, isActive: !item.isActive }
     TodoConsumer.update(data, (status) => {
-
       dispatch({ type: "COMPLETE", payload: status.item });
     })
   }
@@ -27,10 +26,10 @@ const TodoList = () => {
     TodoConsumer.getAll((status) => {
       setIsResult(status.isResult);
       if (status.isResult === 'success') {
-        dispatch({ type: "SET_TODO", payload: status.data });
+        dispatch({ key: "todos", payload: status.data.bikes });
       }
     })
-  }, [state.todo]);
+  }, [state.todos]);
 
   return <>{
     {
@@ -45,13 +44,13 @@ function heander(state) {
   const pluralize = count =>
     count > 1 ? `There are ${count} todos.` : `There is ${count} todo.`;
 
-  return state.todos.length === 0 ? (
+  return state.get('todos').length === 0 ? (
     <h4>Yay! All todos are done! Take a rest!</h4>
   ) : (
-      <TodoHeader>
-        <span className="float-right">{pluralize(state.todos.length)}</span>
-      </TodoHeader>
-    );
+    <TodoHeader>
+      <span className="float-right">{pluralize(state.get('todos').length)}</span>
+    </TodoHeader>
+  );
 }
 
 const List = ({ state, handleComplete, deleteTask }) => <div className="row">
@@ -60,6 +59,7 @@ const List = ({ state, handleComplete, deleteTask }) => <div className="row">
       <div className="col-md-12">
         <br />
         {heander(state)}
+        {console.log(state.toJS())}
       </div>
     </div>
     <div className="row">
@@ -67,7 +67,7 @@ const List = ({ state, handleComplete, deleteTask }) => <div className="row">
         <ul className="list-group" data-testid="all-list">
 
           {
-            state.todos.map(t => (
+            state.get('todos').map(t => (
               <li key={t.id} className="list-group-item" >
                 {`${t.description} | ${new Date(t.createdDate).toLocaleString()}`}
                 <button

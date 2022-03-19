@@ -6,6 +6,7 @@
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
+    "immutable": "^4.0.0",
     "react": "next",
     "react-dom": "next",
     "react-scripts": "2.0.3"

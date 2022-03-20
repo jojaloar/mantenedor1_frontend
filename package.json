@@ -9,6 +9,7 @@
     "immutable": "^4.0.0",
     "react": "next",
     "react-dom": "next",
+    "react-js-pagination": "^3.0.3",
     "react-scripts": "2.0.3"
   },
   "devDependencies": {
